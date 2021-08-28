@@ -1,6 +1,5 @@
-import 'package:jual_mobil/pages/sign_in_page.dart';
 import 'package:flutter/material.dart';
-import 'pages/sign_in_page.dart';
+import 'package:jual_mobil/ui/pages/sign_in_page.dart';
 
 void main() {
   runApp(MyApp());
