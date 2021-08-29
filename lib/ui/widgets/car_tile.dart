@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class CarTile extends StatelessWidget {
-  // final int id;
+  final int id;
   final String title;
   final String imageUrl;
   final int price;
 
   const CarTile({
     Key? key,
-    // required this.id,
+    required this.id,
     this.title = '',
     this.imageUrl = '',
     this.price = 0,
@@ -28,8 +28,11 @@ class CarTile extends StatelessWidget {
       ),
       child: Container(
         width: 110,
-        height: 140,
-        margin: EdgeInsets.only(right: 20),
+        height: 150,
+        margin: EdgeInsets.only(
+          right: defaultMargin,
+          left: id == 0 ? defaultMargin : 0,
+        ),
         padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
           color: whiteColor,
@@ -52,7 +55,7 @@ class CarTile extends StatelessWidget {
                 width: double.infinity,
                 height: 60,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(8),
                   image: DecorationImage(
                     image: AssetImage(imageUrl),
                     fit: BoxFit.cover,
@@ -74,7 +77,7 @@ class CarTile extends StatelessWidget {
                 symbol: 'Rp ',
                 decimalDigits: 0,
               ).format(price),
-              style: greyTextStyle.copyWith(
+              style: blueTextStyle.copyWith(
                 fontWeight: medium,
                 fontSize: 10,
               ),

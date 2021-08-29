@@ -6,11 +6,12 @@ BorderSide defaultBorder = BorderSide(
   color: unselectedColor.withOpacity(0.3),
 );
 
-double defaultMargin = 30.0;
+double defaultMargin = 20.0;
 
 Color primaryColor = Color(0xff0062DD);
-Color secondaryColor = Color(0xffffff1a);
+Color secondaryColor = Color(0xffffeb3b);
 Color purpleColor = Color(0xff200A4D);
+Color greenColor = Color(0xff2ecc71);
 Color blackColor = Color(0xff1F1D2B);
 Color whiteColor = Color(0xffFFFFFF);
 Color greyColor = Color(0xff7f8c8d);
@@ -24,6 +25,10 @@ TextStyle blueTextStyle = GoogleFonts.poppins(
 
 TextStyle yellowTextStyle = GoogleFonts.poppins(
   color: secondaryColor,
+);
+
+TextStyle greenTextStyle = GoogleFonts.poppins(
+  color: greenColor,
 );
 
 TextStyle purpleTextStyle = GoogleFonts.poppins(

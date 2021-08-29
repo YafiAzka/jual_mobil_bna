@@ -1,5 +1,4 @@
 import 'package:jual_mobil/ui/pages/home_page.dart';
-import 'package:jual_mobil/ui/pages/home_page2.dart';
 import 'package:jual_mobil/ui/pages/inbox_page.dart';
 import 'package:jual_mobil/ui/pages/profile_page.dart';
 import 'package:jual_mobil/ui/shared/theme.dart';
@@ -46,14 +45,15 @@ class _MainPageState extends State<MainPage> {
             children: [
               Icon(
                 iconName,
-                color: _currentIndex == index ? primaryColor : unselectedColor,
+                color:
+                    _currentIndex == index ? secondaryColor : unselectedColor,
               ),
               SizedBox(height: 2),
               Text(
                 label,
                 style: blueTextStyle.copyWith(
                   color:
-                      _currentIndex == index ? primaryColor : unselectedColor,
+                      _currentIndex == index ? secondaryColor : unselectedColor,
                   fontSize: _currentIndex == index ? 13 : 12,
                 ),
               ),
@@ -87,14 +87,14 @@ class _MainPageState extends State<MainPage> {
     Widget pageView() {
       switch (_currentIndex) {
         case 0:
-          return HomePage2();
+          return HomePage();
         case 1:
           return InboxPage();
         case 2:
           return ProfilePage();
 
         default:
-          return HomePage2();
+          return HomePage();
       }
     }
 

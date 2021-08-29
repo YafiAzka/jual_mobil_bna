@@ -28,8 +28,8 @@ class CustomButtom extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.centerLeft,
           colors: [
-            Color(0xff8658E8),
-            Color(0xff4718AD),
+            Color(0xfffff280),
+            Color(0xffffe600),
           ],
         ),
       ),

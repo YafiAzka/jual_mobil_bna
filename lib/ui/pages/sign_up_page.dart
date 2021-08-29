@@ -10,13 +10,12 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget header() {
       return Container(
-        width: 327,
-        height: 247,
-        margin: EdgeInsets.only(right: 150),
+        width: double.infinity,
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/form/ilustration2.png'),
-            alignment: Alignment.topRight,
+            image: AssetImage('assets/form/bg1.jpg'),
+            fit: BoxFit.cover,
           ),
         ),
       );
@@ -53,6 +52,12 @@ class SignUpPage extends StatelessWidget {
             CustomForm(
               label: 'Email',
               hint: 'Enter Email',
+              imageUrl: 'assets/form/check_icon.png',
+              margin: EdgeInsets.only(top: 32),
+            ),
+            CustomForm(
+              label: 'Phone',
+              hint: 'Enter Phone Number',
               imageUrl: 'assets/form/check_icon.png',
               margin: EdgeInsets.only(top: 32),
             ),
@@ -158,7 +163,6 @@ class SignUpPage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: purpleColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Stack(

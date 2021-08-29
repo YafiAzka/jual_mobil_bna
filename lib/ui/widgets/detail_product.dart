@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:intl/intl.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:jual_mobil/ui/shared/theme.dart';
 
 class DetailProduct extends StatefulWidget {
@@ -20,6 +21,15 @@ class _DetailProductState extends State<DetailProduct> {
     'assets/list4.jpg',
   ];
 
+  List _similar = [
+    'assets/list3.jpg',
+    'assets/maserati.jpg',
+    'assets/mc.jpg',
+    'assets/supra.jpg',
+    'assets/tesla.jpg',
+    'assets/lamborgini.jpg',
+  ];
+
   @override
   Widget build(BuildContext context) {
     Widget header() {
@@ -32,13 +42,13 @@ class _DetailProductState extends State<DetailProduct> {
           height: 4,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: currentIndex == index ? primaryColor : unselectedColor,
+            color: currentIndex == index ? secondaryColor : unselectedColor,
           ),
         );
       }
 
       return Container(
-        margin: EdgeInsets.only(top: 10),
+        margin: EdgeInsets.only(top: 15),
         child: Column(
           children: [
             Stack(
@@ -128,7 +138,7 @@ class _DetailProductState extends State<DetailProduct> {
       }
 
       Widget descriptionContent() {
-        title(int pageIndex, String text) {
+        title(String text) {
           return Container(
             child: Text(
               text,
@@ -141,17 +151,28 @@ class _DetailProductState extends State<DetailProduct> {
         }
 
         pageView() {
+          customPage(String text) {
+            return Container(
+              padding: EdgeInsets.all(5),
+              child: Text(text),
+            );
+          }
+
           return Container(
             width: double.infinity,
             height: 200,
+            margin: EdgeInsets.only(top: 10),
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 1.5,
+                color: greyColor.withOpacity(0.3),
+              ),
+              borderRadius: BorderRadius.circular(10),
+            ),
             child: PageView(
               children: [
-                Container(
-                  child: Text('Ini deskripsi'),
-                ),
-                Container(
-                  child: Text('Ini spesifikasi'),
-                ),
+                customPage('Ini deskripsi'),
+                customPage('Ini spesifikasi'),
               ],
             ),
           );
@@ -167,8 +188,8 @@ class _DetailProductState extends State<DetailProduct> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  title(0, 'Description'),
-                  title(1, 'Specification'),
+                  title('Description'),
+                  title('Specification'),
                 ],
               ),
               pageView(),
@@ -177,8 +198,161 @@ class _DetailProductState extends State<DetailProduct> {
         );
       }
 
+      Widget userInfo() {
+        return Container(
+          width: double.infinity,
+          margin: EdgeInsets.only(
+            top: defaultMargin,
+          ),
+          padding: EdgeInsets.symmetric(
+            horizontal: defaultMargin,
+            vertical: 5,
+          ),
+          decoration: BoxDecoration(
+            border: Border(
+              top: defaultBorder,
+              bottom: defaultBorder,
+            ),
+          ),
+          child: Row(
+            children: [
+              // NOTE : Profile Pic
+              Container(
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage('assets/profile_icon.png'),
+                  ),
+                ),
+              ),
+
+              // NOTE : User Info
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Ayam'),
+                    SizedBox(height: 5),
+                    Row(
+                      children: [
+                        Container(
+                          width: 30,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            color: secondaryColor,
+                            borderRadius: BorderRadius.horizontal(
+                              left: Radius.circular(10),
+                            ),
+                            image: DecorationImage(
+                              image: AssetImage('assets/like.png'),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 40,
+                          height: 20,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: bgColor,
+                            borderRadius: BorderRadius.horizontal(
+                              right: Radius.circular(10),
+                            ),
+                          ),
+                          child: Text(
+                            'Dealer',
+                            style: greyTextStyle.copyWith(
+                              fontWeight: light,
+                              fontSize: 10,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
+              // NOTE : Icon
+              Icon(
+                Ionicons.chevron_forward,
+                color: greyColor,
+              ),
+            ],
+          ),
+        );
+      }
+
+      Widget similar() {
+        return Container(
+          margin: EdgeInsets.only(top: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+                margin: EdgeInsets.only(bottom: 10),
+                child: Text(
+                  'Similar',
+                  style: blackTextStyle.copyWith(
+                    fontSize: 16,
+                    fontWeight: medium,
+                  ),
+                ),
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: _similar
+                      .map(
+                        (e) => Container(
+                          width: 80,
+                          height: 60,
+                          margin: EdgeInsets.only(
+                            left: e == _similar[0] ? 20 : 0,
+                            right: 10,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            image: DecorationImage(
+                              image: AssetImage(e),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      )
+                      .toList(),
+                ),
+              ),
+            ],
+          ),
+        );
+      }
+
+      Widget button() {
+        return Container(
+          margin: EdgeInsets.all(defaultMargin),
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: secondaryColor,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: TextButton(
+            onPressed: () {},
+            child: Text(
+              'Hubungi penjual',
+              style: whiteTextStyle.copyWith(
+                fontSize: 18,
+                fontWeight: bold,
+              ),
+            ),
+          ),
+        );
+      }
+
       return Container(
-        margin: EdgeInsets.only(top: 20),
+        margin: EdgeInsets.only(top: defaultMargin),
         width: double.infinity,
         decoration: BoxDecoration(
           color: whiteColor,
@@ -187,9 +361,13 @@ class _DetailProductState extends State<DetailProduct> {
           ),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             headerContent(),
             descriptionContent(),
+            userInfo(),
+            similar(),
+            button(),
           ],
         ),
       );
@@ -199,8 +377,15 @@ class _DetailProductState extends State<DetailProduct> {
       backgroundColor: bgColor,
       appBar: AppBar(
         backgroundColor: secondaryColor,
-        iconTheme: IconThemeData(color: primaryColor),
         elevation: 0,
+        centerTitle: true,
+        title: Text(
+          'Detail Product',
+          style: whiteTextStyle.copyWith(
+            fontSize: 20,
+            fontWeight: bold,
+          ),
+        ),
       ),
       body: ListView(
         children: [

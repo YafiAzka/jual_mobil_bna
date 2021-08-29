@@ -9,7 +9,7 @@ class InboxPage extends StatelessWidget {
     Widget header() {
       return AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: primaryColor,
+        backgroundColor: secondaryColor,
         title: Text(
           'Inbox',
           style: whiteTextStyle.copyWith(fontWeight: semiBold),
@@ -18,63 +18,60 @@ class InboxPage extends StatelessWidget {
     }
 
     Widget emptyInbox() {
-      return Expanded(
-        child: Container(
-          width: double.infinity,
-          child: Column(
-            children: [
-              Image.asset(
-                'assets/empty_inbox.png',
-                width: 300,
-                height: 300,
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 130),
-                child: Column(
-                  children: [
-                    Text(
-                      'No New Notifications',
-                      style: blackTextStyle.copyWith(
-                        fontWeight: semiBold,
-                        fontSize: 24,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Your activity notification\nwill be displayed here',
-                      style: greyTextStyle.copyWith(fontSize: 16),
-                      textAlign: TextAlign.center,
-                    )
-                  ],
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+      return Center(
+        child: Column(
+          children: [
+            Image.asset(
+              'assets/empty_inbox.png',
+              width: 300,
+              height: 300,
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 130),
+              child: Column(
                 children: [
                   Text(
-                    'Looking For Notifications? ',
-                    style: greyTextStyle,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text(
-                      'Sign In',
-                      style: blueTextStyle.copyWith(
-                        fontWeight: semiBold,
-                        fontSize: 15,
-                      ),
+                    'No New Notifications',
+                    style: blackTextStyle.copyWith(
+                      fontWeight: semiBold,
+                      fontSize: 24,
                     ),
                   ),
+                  SizedBox(height: 10),
                   Text(
-                    ' To Carmudi',
-                    style: greyTextStyle,
-                  ),
+                    'Your activity notification\nwill be displayed here',
+                    style: greyTextStyle.copyWith(fontSize: 16),
+                    textAlign: TextAlign.center,
+                  )
                 ],
               ),
-            ],
-          ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Looking For Notifications? ',
+                  style: greyTextStyle,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    'Sign In',
+                    style: yellowTextStyle.copyWith(
+                      fontWeight: semiBold,
+                      fontSize: 15,
+                    ),
+                  ),
+                ),
+                Text(
+                  ' To Carmudi',
+                  style: greyTextStyle,
+                ),
+              ],
+            ),
+          ],
         ),
       );
     }

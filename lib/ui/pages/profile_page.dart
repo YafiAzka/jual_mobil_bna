@@ -17,7 +17,7 @@ class _ProfilePageState extends State<ProfilePage> {
     Widget header() {
       return AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: primaryColor,
+        backgroundColor: secondaryColor,
         title: Text(
           'Profile',
           style: whiteTextStyle.copyWith(fontWeight: semiBold),
@@ -78,7 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           child: Text(
             'Sign In',
-            style: blueTextStyle.copyWith(
+            style: yellowTextStyle.copyWith(
               fontSize: 18,
               fontWeight: medium,
             ),
@@ -103,7 +103,7 @@ class _ProfilePageState extends State<ProfilePage> {
               height: 30,
               margin: EdgeInsets.only(),
               decoration: BoxDecoration(
-                color: isSelected == index ? primaryColor : switchColor,
+                color: isSelected == index ? secondaryColor : switchColor,
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Text(
@@ -138,6 +138,7 @@ class _ProfilePageState extends State<ProfilePage> {
       switch2() {
         return Switch(
           value: isSwitched,
+          activeColor: secondaryColor,
           onChanged: (value) {
             setState(() {
               isSwitched = value;

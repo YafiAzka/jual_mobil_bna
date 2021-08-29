@@ -10,14 +10,16 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget header() {
-      return Container(
-        width: 327,
-        height: 247,
-        margin: EdgeInsets.only(left: 100),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/form/ilustration1.png'),
-            alignment: Alignment.topRight,
+      return RotatedBox(
+        quarterTurns: 2,
+        child: Container(
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/form/bg1.jpg'),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       );
@@ -117,7 +119,7 @@ class SignInPage extends StatelessWidget {
 
             // NOTE : Sign Up
             Container(
-              margin: EdgeInsets.only(top: 28, bottom: 39),
+              margin: EdgeInsets.only(top: 28, bottom: 60),
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
