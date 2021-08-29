@@ -25,13 +25,7 @@ class CustomButtom extends StatelessWidget {
           bottomRight: isSkip == true ? Radius.circular(10) : Radius.zero,
           bottomLeft: Radius.circular(10),
         ),
-        gradient: LinearGradient(
-          begin: Alignment.centerLeft,
-          colors: [
-            Color(0xfffff280),
-            Color(0xffffe600),
-          ],
-        ),
+        color: Color(0xffffe600),
       ),
       child: TextButton(
         onPressed: () {

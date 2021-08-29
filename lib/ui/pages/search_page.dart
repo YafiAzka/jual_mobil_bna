@@ -15,22 +15,22 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     Widget header() {
       return AppBar(
-        backgroundColor: whiteColor,
-        iconTheme: IconThemeData(color: greyColor),
+        backgroundColor: secondaryColor,
+        iconTheme: IconThemeData(color: whiteColor),
         elevation: 0,
         title: TextFormField(
           autofocus: false,
           decoration: InputDecoration(
             focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: primaryColor),
+              borderSide: BorderSide(color: whiteColor),
             ),
             suffixIcon: Icon(
               Ionicons.search_outline,
-              color: greyColor,
+              color: whiteColor,
             ),
             hintText: 'Cari Mobil',
-            hintStyle: greyTextStyle.copyWith(
-              fontWeight: medium,
+            hintStyle: whiteTextStyle.copyWith(
+              fontWeight: bold,
               fontSize: 20,
             ),
             border: InputBorder.none,
@@ -79,7 +79,7 @@ class _SearchPageState extends State<SearchPage> {
             SizedBox(height: 30),
             //
             Text(
-              'Kondisi',
+              'Lokasi',
               style: blackTextStyle.copyWith(
                 fontSize: 18,
                 fontWeight: medium,

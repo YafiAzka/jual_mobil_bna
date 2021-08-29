@@ -45,15 +45,17 @@ class _MainPageState extends State<MainPage> {
             children: [
               Icon(
                 iconName,
-                color:
-                    _currentIndex == index ? secondaryColor : unselectedColor,
+                color: _currentIndex == index
+                    ? Color(0xffffe600)
+                    : unselectedColor,
               ),
               SizedBox(height: 2),
               Text(
                 label,
                 style: blueTextStyle.copyWith(
-                  color:
-                      _currentIndex == index ? secondaryColor : unselectedColor,
+                  color: _currentIndex == index
+                      ? Color(0xffffe600)
+                      : unselectedColor,
                   fontSize: _currentIndex == index ? 13 : 12,
                 ),
               ),

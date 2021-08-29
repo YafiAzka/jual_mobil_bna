@@ -108,9 +108,9 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               child: Text(
                 index == 0 ? 'Beli' : 'Jual',
-                style: whiteTextStyle.copyWith(
-                  color: isSelected == index ? whiteColor : greyColor,
-                  fontWeight: light,
+                style: blackTextStyle.copyWith(
+                  color: isSelected == index ? blackColor : greyColor,
+                  fontWeight: medium,
                   fontSize: 11,
                 ),
               ),
